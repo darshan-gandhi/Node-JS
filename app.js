@@ -1,24 +1,27 @@
 const express = require('express')
-
+const cors = require('cors')
 const app = express()
+const cookieParser = require('cookie-parser')
+
 
 const mongoose = require('mongoose')
 
-const userController = require('./controller/user')
+const authController = require('./controller/auth')
 
 const middleware = require('./utils/middleware')
-
+app.use(cors())
+app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use('/api/users', userController)
+app.use(cookieParser())
+app.use('/api/auth', authController)
+// app.use(middleware.unknownEndpoint)
 
-app.use(middleware.unknownEndpoint)
 
-
-const server = app.listen(5000, (err) => {
+const server = app.listen(4000, (err) => {
     if (err) console.error(err)
     else {
-      console.log(`Server started at 5000`)
-      mongoose.connect('mongodb://127.0.0.1:27017/darshan', {
+      console.log(`Server started at 4000`)
+      mongoose.connect('mongodb://127.0.0.1:27017/authentication', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,

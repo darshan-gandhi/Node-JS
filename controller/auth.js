@@ -6,9 +6,12 @@ const bcrypt = require('bcryptjs')
 
 
 router.get('/',(req,res)=>{
-    res.sendFile('/Users/apple/Downloads/Authentication /views/index.html')
+    res.sendFile('/Users/apple/Downloads/file_uploading/views/login.html')
 })
 
+router.get('/image',(req,res)=>{
+  res.sendFile('/Users/apple/Downloads/file_uploading/uploads/Photo.jpg')
+})
 
 
 router.post('/signUp', async (req, res) => {
@@ -51,7 +54,8 @@ router.post('/login', async (req, res) => {
     console.log(result)
     if (result === true) {
       res.cookie('username', username)
-      res.status(200).json('logged in')
+    //   res.status(200).json('logged in')
+    res.sendFile('/Users/apple/Downloads/file_uploading/views/index.html')
     } else {
       res.status(404).json('not found')
     }
@@ -74,18 +78,18 @@ router.get('/findAll',async(req,res,next)=>{
     }
 })
 
-router.get('/getuser', (req, res)=>{ 
-    //shows all the cookies 
-    res.send(req.cookies); 
-    }); 
+// router.get('/getuser', (req, res)=>{ 
+//     //shows all the cookies 
+//     res.send(req.cookies); 
+//     }); 
 
-router.get('/logout', authenticated, async (req, res) => {
-  try {
-    res.clearCookie('username')
-    res.status(200).json('logged out')
-  } catch (err) {
-    console.log(err)
-  }
-})
+// router.get('/logout', authenticated, async (req, res) => {
+//   try {
+//     res.clearCookie('username')
+//     res.status(200).json('logged out')
+//   } catch (err) {
+//     console.log(err)
+//   }
+// })
 
 module.exports = router

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Students</title>
+<style>
+.one{
+margin:70px;
+padding:10px;
+}
+span{
+margin: 25px;
+padding:10px;
+}
+body {
+font-family: Arial, Helvetica, sans-serif;
+background-color: lightcoral;
+}
+table, th, td {
+border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<!-- <button><a href="/studentsform">Create New</a></button> -->
+<h3>Students List</h3>
+<!-- <div>
+<span class="one">Name</span>
+<span class="one">Email</span>
+<span class="one">Mobile</span>
+<span class="one">City</span>
+</div>
+<ol>
+<% data.forEach(function(datas) { %>
+<li>
+<span><%= datas.name %></span>
+<span><%= datas.email %></span>
+<span><%= datas.mobile %></span>
+<span><%= datas.city %></span>
+</li>
+<% }); %>
+</ol> -->
+<!-- <script>
+var func = ()=> {
+alert("Are you sure you want to delete");
+}
+</script> -->
+
+<table>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Mobile</th>
+<th>City</th>
+</tr>
+<% data.forEach(function(datas) { %>
+<tr>
+<td><%= datas.fieldname %></td>
+<td><%= datas.orginalname %></td>
+<td><%= datas.mimetype %></td>
+<td><%= datas.destination %></td>
+</tr>
+<% }); %>
+
+
+
+</table>
+
+
+
+</body>
+</html>

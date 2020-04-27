@@ -1,0 +1,7 @@
+<h1> DASHBOARD </h1>
+<div *ngFor="let item of cart">
+  <div class="playGround">
+    NAME  :  {{item.name}} <br><br>SALARY : {{item.salary | currency:'INR' }}  <br><br> EMPLOYEE DEPARTMENT: {{item.department}}<br>
+    <button appTestDirective (click)="removeItem(item.id)"> Remove user from DASHBOARD </button>
+  </div>
+</div> 
